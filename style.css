@@ -1,0 +1,26 @@
+form {
+	margin: 40px 0;
+	text-align: center;
+}
+
+table {
+	margin: 30px auto;
+}
+
+tr {
+	height: 30px;
+
+}
+
+td {
+	text-align: center;
+}
+
+td:first-child {
+	text-align: left;
+	padding-left: 10px;
+}
+
+.checked {
+	background: #98FB98;
+}

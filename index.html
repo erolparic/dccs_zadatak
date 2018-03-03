@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>To-Do List</title>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link href="style.css" type="text/css" rel="stylesheet" media="all"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="script.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	</head>
+
+	<body onload="retrieveData()">
+		<div class="container-fluid">
+			<h2 class="text-primary text-center">To-Do List</h2>
+			<form action="javascript:addEntry(toDoInput.value, false)">
+				<input type="text" name="toDoInput" id="toDoInput" placeholder="Type in to-do text..." required/>
+				<input type="submit" name="submit" class="btn btn-primary" value="Add New"/>
+			</form>
+			
+			<table id="table">
+				<tr>
+					<th style="width: 300px; padding-left: 10px;">to-do text</th>
+					<th style="width: 120px; text-align: center;">Completed</th>
+					<th style="width: 60px; text-align: center;">Delete</th>
+				</tr>
+				
+				<tr>
+					<td>Change oil in car</td>
+					<td><input type="checkbox" name="entryDone" onclick="setCompleted(this)"/></td>
+					<td><i name="deleteRow" class="fa fa-trash" onclick="deleteRow(this)"></i></td>
+				</tr>
+				<tr>
+					<td>Buy bread and milk</td>
+					<td><input type="checkbox" name="entryDone" onclick="setCompleted(this)"/></td>
+					<td><i name="deleteRow" class="fa fa-trash" onclick="deleteRow(this)"></i></td>
+				</tr>
+			</table>
+			
+			<div style="text-align: center;">
+				<a href="#" id="download" onclick="exportData()"><button class="btn btn-primary">Export</button></a>
+				<label for="import" class="btn btn-primary">Import</label>
+				<input type="file" id="import" style="display: none;" accept=".txt" onchange="importData(this)"/>
+			</div>
+			
+			<div id="main"></div>
+		</div>
+	</body>
+</html>
